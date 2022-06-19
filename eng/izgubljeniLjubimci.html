@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Adopt A Paw - Lost pets</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-seo-dream.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <!--
+
+TemplateMo 563 SEO Dream
+
+https://templatemo.com/tm-563-seo-dream
+
+-->
+
+</head>
+
+<body onload="init()">
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <h4><img src="../assets/images/paw_logo.png" alt=""></h4>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="../izgubljeniLjubimci.html">SRB</a></li>
+                            <li class="scroll-to-section"><a href="index.html" class="active">Start Page</a></li>
+                            <li class="scroll-to-section"><a href="zivotinje.html">Animals</a></li>
+                            <li class="scroll-to-section"><a href="izgubljeniLjubimci.html">Lost pets</a></li>
+                            <li class="scroll-to-section"><a href="dodajOglas.html">Add a lost ad</a></li>
+                            <li class="scroll-to-section"><a href="profil.html">My account</a></li>
+                            <li class="scroll-to-section">
+                                <div class="main-blue-button"><a href="o_nama.html">About us</a></div>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <div id="features" class="features section" style="margin-top:100px; margin-bottom: 5px">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;" id="glavna">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright 2022, Ivan Cvetić i Konstantin Benović,
+                        <br> Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u Beogradu
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+    <script>
+        function init() {
+
+            let oglasi = JSON.parse(localStorage.getItem("oglasi"));
+            for (let i = 0; i < oglasi.length; i++) {
+                /*let div = $("<div></div>");
+                div.addClass('card');
+                div.addClass('col-sm-12');
+                div.css({
+                    'width': '100%',
+                    'heigth': '100%',
+                    'background-color': '#f9e9f9'
+                })
+                let ime, naziv;
+                if (oglasi[i].ime=="pas") {
+                    ime = 'assets/images/icons8-dog-100.png';
+                    naziv = "PAS";
+                }
+                else if (oglasi[i].ime=="macka") {
+                    ime = 'assets/images/icons8-cat-100.png';
+                    naziv = "MACKA";
+                }
+                else {
+                    ime = 'assets/images/icons8-bird-100.png';
+                    naziv = "PTICA";
+                }
+                let img = $("<img alt='Card Image'>");
+                img.attr('src',ime);
+                img.addClass('card-img-top');
+                img.css({
+                    "width": "100%",
+                    "heigth": "100%"
+                })
+                div.append(img);
+                let div1 = $("<div></div>");
+                div1.addClass('card-body');
+                let header = $("<h3></h3>");
+                header.append(naziv);
+                let par = $("<p></p>");
+                par.addClass("card-text");
+                par.append("<b>Kontakt telefon:</b> " + oglasi[i].broj);
+                par.append("<br>");
+                par.append("<b>Opis:</b> " + oglasi[i].opis);
+                par.css({
+                    "margin-top": "10px",
+                    "font-size": "20px"
+                })
+                div1.append(header);
+                div1.append(par);
+                div.append(div1);
+                let div2  = $("<div></div>");
+                
+
+                let tabela = $("<table></table>");
+                let tr = $("<tr></tr>");
+                let td1 = $("<td></td>");
+                let td2 = $("<td></td>");
+                let textarea = $("<textarea></textarea>");
+                textarea.css({
+                    'margin-left': "30px",
+                    'height': "100%",
+                    'width': "100%",
+                    'min-height': "200px"
+                })
+                let text = $("<input type='text' placeholder='Unesite komentar'>");
+                text.css({
+                    'margin-left': "30px",
+                    'height': "50px",
+                    'width': "250px"
+                })
+                let button = $("<button>&#10148;</button>");
+                button.css({
+                    "width": "50px",
+                    "heigth": "100px"
+                })
+                let div3=$("<div></div>");
+                div3.css({
+                    "width": "300px"
+                })
+
+                let table10 = $("<table></table>");
+                let tr10 = $("<tr></tr>");
+                let td10 = $("<td></td>");
+                let td11 = $("<td></td>");
+
+                td10.append(text);
+                td11.append(button);
+                tr10.append(td10);
+                tr10.append(td11);
+                table10.append(tr10);
+                td2.append(textarea);
+                td2.append("<br>");
+                td2.append(table10);
+
+                td1.append(div);
+                tr.append(td1);
+                tr.append(td2);
+                tabela.append(tr);
+                div2.append(tabela);
+                div2.addClass("col-lg-12");
+                div2.addClass("col-sm-12");
+                $("#glavna").append(div2);
+                $("#glavna").append("<br>");*/
+                let div = $("<div></div>");
+                div.addClass('col-sm-12');
+                div.addClass("row");
+                div.css({
+                    "background-color": "#f9e9f9"
+                })
+                let div2 = $("<div></div>");
+                let div3 = $("<div></div>");
+                let div4 = $("<div></div>");
+
+                div2.addClass("col-lg-2");
+                div2.addClass("col-sm-12");
+                div3.addClass("col-lg-5");
+                div3.addClass("col-sm-12");
+                div4.addClass("col-lg-5");
+                div4.addClass("col-sm-12");
+
+                let ime, naziv;
+                if (oglasi[i].ime == "pas") {
+                    ime = 'assets/images/icons8-dog-100.png';
+                    naziv = "PAS";
+                } else if (oglasi[i].ime == "macka") {
+                    ime = 'assets/images/icons8-cat-100.png';
+                    naziv = "MACKA";
+                } else {
+                    ime = 'assets/images/icons8-bird-100.png';
+                    naziv = "PTICA";
+                }
+                let img = $("<img alt='Image'>");
+                img.attr('src', ime);
+                div2.append(img);
+
+                let header = $("<h2></h2>");
+                header.append(naziv);
+                div3.append(header);
+                div3.append("<br>");
+                div3.append("<b>Opis: </b>")
+                div3.append(oglasi[i].opis);
+                div3.append("<br>");
+                div3.append("<br>");
+                div3.append("<b>Kontakt telefon: </b>");
+                div3.append(oglasi[i].broj);
+                div3.css({
+                    "font-size": "25px"
+                })
+
+                let textbox = $('<div style="width:100%;height:200px;line-height:3em;overflow:auto;padding:5px; background-color: white; margin-top: 10px; margin-bottom: 10px;"></div>');
+                for (let j = 0; j < oglasi[i].komentari.length; j++) {
+                    textbox.append("<label>" + oglasi[i].komentari[j] + "</label>");
+                }
+                let text = $("<input type='text' placeholder='Unesite komentar' style='width:90%;  margin-bottom: 10px;'>");
+                text.attr("id", "text" + i);
+
+                let button = $("<button>&#10148;</button>");
+                button.attr('value', i);
+                button.on({
+                    'click': function() {
+                        let s = text.val();
+                        textbox.append(s);
+                        textbox.append("<br>")
+                        oglasi[i].komentari.push(s);
+                        localStorage.setItem("oglasi", JSON.stringify(oglasi));
+                        coments = JSON.parse(localStorage.getItem("komentari"));
+                        if (coments == null) {
+                            coments = []
+                        }
+                        coments.push(s);
+                        localStorage.setItem("komentari", JSON.stringify(coments));
+                    }
+                })
+                div4.append(textbox);
+                div4.append(text);
+                button.css({
+                    "width": "10%"
+                })
+                div4.append(button);
+
+                div.append(div2);
+                div.append(div3);
+                div.append(div4);
+
+                $("#glavna").append(div);
+                $("#glavna").append("<br>");
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
